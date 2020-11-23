@@ -1,0 +1,62 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <title>Find Watch Activities</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/moment"></script>
+        <script src="./moment-timezone-with-data.js"></script>
+        <script src="./datatables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="./styles.css">
+        <script src="./script.js"></script>
+    </head>
+    <body onload="init()">
+        <div class="container">
+            <div class="row" id="error-div" style="visibility: hidden">
+                <textarea id="error-text" style="color: red; width:100%;" disabled></textarea>
+            </div>
+            <div class="row" style="padding-bottom: 50px;">
+                <div class="col-sm-2">
+                    <button onclick="window.open('https://ben-hig.github.io','_blank')">Home</button>  
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Challenge URL:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="url-input" style="width:100%;"/>
+                </div>
+                <div class="col-sm-2">
+                    <select name="dateFormat" id="dateFormat">
+                        <option value="DD-MM-YYYY HH:mm:ss">DD-MM-YYYY</option>
+                        <option value="YYYY-MM-DD HH:mm:ss">YYYY-MM-DD</option>
+                    </select>
+                </div>
+                <div class="col-sm-1 red" id="redKey" style="visibility: hidden">
+                    Before<br/>Start
+                </div>
+                <div class="col-sm-1 green" id="greenKey" style="visibility: hidden">
+                    After<br/>Start
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <button id="load-activities" onclick="startDoingTheThing()">Load Activities</button>
+                </div>
+                <div class="col-sm-10">
+                    <span id="user-name"></span>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 50px;">
+                <div class="col-sm-12">
+                    <table id="activities" class="cell-border"></table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
