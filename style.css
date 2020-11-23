@@ -1,0 +1,11 @@
+.red {
+    background-color: LightPink !important;
+  }
+  
+  .green {
+    background-color: LightGreen !important;
+  }
+  
+  #activities span {
+      display:none; 
+  }
