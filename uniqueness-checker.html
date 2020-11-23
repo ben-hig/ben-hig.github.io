@@ -1,0 +1,60 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <title>Verify unique anime</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="./datatables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="./styles.css">
+        <script src="./uniqueness-checker.js"></script>
+        <script type="text/javascript">
+            function goHome() {
+                window.location.href = 'https://ben-hig.github.io/';
+            }
+
+        </script>
+    </head>
+    <body onload="init()">
+        <div class="container">
+            <div class="row" id="error-div" style="visibility: hidden">
+                <textarea id="error-text" style="color: red; width:100%;" disabled></textarea>
+            </div>
+            <div class="row" style="padding-bottom: 50px;">
+                <div class="col-sm-2">
+                    <button onclick="goHome">Home</button>  
+                </div>
+                <div class="col-sm-8">
+                  Warning: This could make a ton of API calls depending on the number of thread comments the challenger has made. Use only when necessary. Multiple searches in a row with the same Challenger Name will use cached results to avoid the rate limit, so Rainbow challenge can be verified. Cached results will be lost if the page is closed.  
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Challenger Name:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" id="name-input" style="width:100%;"/>
+                </div>
+                <div class="col-sm-2">
+                    <label>Anilist URL for the media:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" id="url-input" style="width:100%;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <button id="load-matches" onclick="startDoingTheThing()">Find Matches</button>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 50px;">
+                <div class="col-sm-12">
+                    <table id="comments" class="cell-border"></table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
